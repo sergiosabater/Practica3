@@ -155,7 +155,6 @@ public class DescargaImagenActivity extends AppCompatActivity {
             connection.connect();
             InputStream input = connection.getInputStream();
             Bitmap myBitmap = BitmapFactory.decodeStream(input);
-            Log.e("Bitmap","returned");
             return myBitmap;
         } catch (IOException e) {
             e.printStackTrace();
@@ -163,7 +162,6 @@ public class DescargaImagenActivity extends AppCompatActivity {
             return null;
         }
     }
-
 
 
     public void guardarImagen(Context context, String URL) {
@@ -203,8 +201,8 @@ public class DescargaImagenActivity extends AppCompatActivity {
             File filefinal = new File(ExternalStorageDirectory + rutacarpeta + nombre);
 
             ContentValues values = new ContentValues();
-            values.put(MediaStore.Images.Media.TITLE, "Titulo");
-            values.put(MediaStore.Images.Media.DESCRIPTION, "Descripción");
+            values.put(MediaStore.Images.Media.TITLE, "Doraemon");
+            values.put(MediaStore.Images.Media.DESCRIPTION, "Imagen de Doraemon");
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
                 values.put(MediaStore.Images.ImageColumns.BUCKET_ID, filefinal.toString().toLowerCase(Locale.getDefault()).hashCode());
@@ -213,8 +211,6 @@ public class DescargaImagenActivity extends AppCompatActivity {
             values.put("_data", filefinal.getAbsolutePath());
             ContentResolver cr = getContentResolver();
             cr.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
-            Toast.makeText(context, "Imagen guardada", Toast.LENGTH_SHORT).show();
-
 
         } catch (Exception e) {
             e.printStackTrace();
