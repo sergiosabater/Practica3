@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Practica_3">
-        <activity android:name=".DescargaXMLActivity"></activity>
+        <activity android:name=".NewActivity"></activity>
+        <activity android:name=".DescargaXMLActivity" />
         <activity android:name=".DescargaImagenActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
